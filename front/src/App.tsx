@@ -1,4 +1,3 @@
-import './App.css';
 import { useState, useEffect, useRef } from 'react'
 import { Navbar, CameraEditor, Buttons, NeironSettings, CanvasSelection } from './components'
 import Button from '@mui/material/Button'
