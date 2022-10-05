@@ -24,7 +24,7 @@ const NeironSettings = ({ theme, isActive, activeCamera, camAreas, handleDeleted
 
 
   useEffect(() => {
-    if(areaDeleted)
+    if (areaDeleted)
       setDeletedArea((prev) => !prev)
     fetch('http://localhost:8080/neironDetectionStates')
       .then((res) => { return res.json() })
@@ -33,7 +33,7 @@ const NeironSettings = ({ theme, isActive, activeCamera, camAreas, handleDeleted
         setDetectPlace(data[0].place)
       })
 
-  },[activeCamera, areaDeleted]) 
+  }, [activeCamera, areaDeleted])
 
 
   const handleSwitchHelmet = () => {
@@ -79,11 +79,11 @@ const NeironSettings = ({ theme, isActive, activeCamera, camAreas, handleDeleted
   }
 
   return (
-    <div className={`flex flex-col items-center w-full my-[10px] 
-      ${theme ? 'bg-gradient-to-br from-[rgba(255,255,255,0.1)] to-[rgba(255,255,2550,0)] backdrop-blur-[10px] border-[1px] border-[rgba(255,255,255,0.18)] shadow-[0px_8px_32px_0px_rgba(0,0,0,0.37)] text-black rounded-[15px] bg-opacity-10'
+    <div className={`flex flex-col items-center w-full my-[10px] rounded-[15px] bg-opacity-10 text-white
+      ${theme ? 'bg-gradient-to-br from-[rgba(255,255,255,0.1)] to-[rgba(255,255,2550,0)] backdrop-blur-[10px] border-[1px] border-[rgba(255,255,255,0.18)] shadow-[0px_8px_32px_0px_rgba(0,0,0,0.37)]'
         :
-        'bg-[#0c1928] text-white'}  `}>
-      <span className="p-[15px]">Neiron settings</span>
+        'bg[#0c1928] bg-gradient-to-br from-[rgba(12,25,40,0.45)] to-[rgba(12,25,40,0.2)] backdrop-blur-[8px] border-[1px] border-[rgba(255,255,255,0.18)] shadow-[0px_8px_32px_0px_rgba(255,255,255,0.37)]'} navbar-blur`}>
+      <span className="p-[15px] font-bold uppercase">Neiron settings</span>
       <div className="settings-sections">
         <Button className="w-[300px] h-[56px]" variant="contained" onClick={() => setActiveEvent((prev) => !prev)}>Event classification</Button>
       </div>
@@ -109,12 +109,12 @@ const NeironSettings = ({ theme, isActive, activeCamera, camAreas, handleDeleted
             Detection areas
           </span>
           <div className="mt-[15px] flex flex-col item-center justify-center">
-            <DetectAreaList 
+            <DetectAreaList
               deleteCurrentArea={(id) => handleDeleted(id)}
               currCameraAreas={camAreas}
-              />
-            <Button variant="contained" onClick={handleAddArea}>{`${!currentActive ?  'Add area' : 'Cancel adding'}`}</Button>
-            <Button variant="contained" onClick={() => {}}>Apply changes</Button>
+            />
+            <Button variant="contained" onClick={handleAddArea}>{`${!currentActive ? 'Add area' : 'Cancel adding'}`}</Button>
+            <Button variant="contained" onClick={() => { }}>Apply changes</Button>
           </div>
         </div>
       }

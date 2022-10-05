@@ -16,8 +16,6 @@ const CameraEditor = ({ cameraArray, changed, close }: Props) => {
   const [cameraSelected, setSelectedCamera] = useState<any>()
   const [cameraTitle, setCameraTitle] = useState<any>()
   const [cameraLink, setCameraLink] = useState<any>()
-  const [cameraLogin, setCameraLogin] = useState<any>()
-  const [cameraPass, setCameraPass] = useState<any>()
 
   const handleRemoveItem = () => {
     fetch('http://localhost:8080/camerasList/' + cameraSelected.id, {
@@ -27,7 +25,7 @@ const CameraEditor = ({ cameraArray, changed, close }: Props) => {
     setSelectedCamera('')
   }
   const handleApplyChanges = () => {
-    const newProps = { title: cameraTitle, link: cameraLink, login: cameraLogin, password: cameraPass }
+    const newProps = { title: cameraTitle, link: cameraLink }
 
     fetch('http://localhost:8080/camerasList/' + cameraSelected.id, {
       method: 'PUT',
@@ -51,8 +49,6 @@ const CameraEditor = ({ cameraArray, changed, close }: Props) => {
                     setSelectedCamera(item)
                     setCameraTitle(item.title)
                     setCameraLink(item.link)
-                    setCameraLogin(item.login)
-                    setCameraPass(item.password)
                   }}>
                     <CameraLowerItem title={item.title} cameraLink={item.link} /*isActive={acitveCamera} */ />
                   </li>
@@ -73,12 +69,6 @@ const CameraEditor = ({ cameraArray, changed, close }: Props) => {
                 </li>
                 <li className="mt-[10px]">
                   <StyledTextField key={1} label={textFieldNames[1]} value={cameraLink} onChange={(e) => setCameraLink(e.target.value)} variant='outlined' />
-                </li>
-                <li className="mt-[10px]">
-                  <StyledTextField key={2} label={textFieldNames[2]} value={cameraLogin} onChange={(e) => setCameraLogin(e.target.value)} variant='outlined' />
-                </li>
-                <li className="mt-[10px]">
-                  <StyledTextField key={3} label={textFieldNames[3]} value={cameraPass} onChange={(e) => setCameraPass(e.target.value)} variant='outlined' />
                 </li>
               </ul>
             </div>
