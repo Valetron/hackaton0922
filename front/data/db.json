@@ -1,0 +1,57 @@
+{
+  "camerasList": [
+    {
+      "title": "2222",
+      "link": "login",
+      "login": "ada",
+      "password": "Cam1",
+      "id": 0
+    },
+    {
+      "title": "NICHEGO",
+      "link": "https://www.youtube.com/watch?v=OFJvCGI1pvk&t=1109s&ab_channel=%D0%93%D0%90%D0%92%D0%95%D0%A0",
+      "login": "",
+      "password": "Cam2",
+      "id": 1
+    },
+    {
+      "title": "Lab",
+      "link": "https://www.youtube.com/watch?v=VgoudnL7K4Q&ab_channel=%D0%9A%D0%9E%D0%9D%D0%9D%D0%95%D0%9A%D0%A2",
+      "login": "",
+      "password": "",
+      "id": 2
+    },
+    {
+      "title": "Lab",
+      "link": "",
+      "login": "",
+      "password": "",
+      "id": 4
+    },
+    {
+      "title": "Camera 4",
+      "link": "",
+      "login": "",
+      "password": "",
+      "id": 5
+    }
+  ],
+  "neironDetectionStates": [
+    {
+      "id": 0,
+      "helmet": false,
+      "place": false
+    }
+  ],
+  "camerasAreas": [
+    {
+      "cam_id": 1,
+      "x": 335,
+      "y": 170,
+      "width": 305,
+      "height": 197,
+      "title": "Area 1",
+      "id": 3
+    }
+  ]
+}
