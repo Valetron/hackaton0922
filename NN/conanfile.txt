@@ -1,0 +1,17 @@
+[requires]
+opencv/4.5.2
+#nlohmann_json/3.10.5
+tensorflow-lite/2.10.0
+eigen/3.4.0
+flatbuffers/2.0.6
+
+[options]
+flatbuffers:header_only=True
+
+[generators]
+cmake_find_package
+cmake_paths 
+
+[imports] 
+lib, *.so* -> ../conan-imports/bin 
+lib, *.a -> ../conan-imports/lib
