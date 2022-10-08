@@ -1,7 +1,7 @@
+import React from 'react'
 import DetectAreaItem from "./DetectAreaItem";
 import DeleteIcon from '@mui/icons-material/Delete'
 import IconButton from '@mui/material/IconButton'
-import { Icon } from "@mui/material";
 
 interface Props {
   currCameraAreas: any,
@@ -31,4 +31,4 @@ const DetectAreaList = ({ currCameraAreas, deleteCurrentArea }: Props) => {
   )
 }
 
-export default DetectAreaList
+export default React.memo(DetectAreaList)

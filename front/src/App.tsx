@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
-import { Navbar, CameraEditor, Buttons, NeironSettings, CanvasSelection } from './components'
+import { Navbar, CameraEditor, Buttons, NeironSettings, CanvasSelection, AddCamera } from './components'
 import ReactPlayer from 'react-player';
 
 function App() {
   const [active_Theme, setActiveTheme] = useState<boolean>(true)
   const [activeCamera, setActiveCamera] = useState<number>()
+  const [activeAddCamera, setActiveAddCamera] = useState<boolean>(false)
   const [cameraArray, setCameraArray] = useState<any>(null)
   const [activeEditor, setAcitveEditor] = useState<boolean>(false)
   const [activeCanvas, setActiveCanvas] = useState<boolean>(false)
@@ -39,8 +40,8 @@ function App() {
     setCanvasPosted(false)
   }, [addedCamera, changedProps, activeLinkVideoURL, canvasPosted, activeCamera, activeCanvas])
 
-  const handleAddCamera = () => {
-    const newCamera = { title: `Camera ${cameraArray[cameraArray.length - 1].id}`, link: "", login: "", password: "" }
+  const handleAddCamera = (title: string, link: string) => {
+    const newCamera = { title: title, link: link }
 
     fetch('http://localhost:8080/camerasList', {
       method: 'POST',
@@ -59,8 +60,15 @@ function App() {
   }
   return (
     <div className={`w-screen h-screen page-wrapper`}>
+      {activeAddCamera &&
+        <AddCamera  
+          close={() => setActiveAddCamera((prev) => !prev)}
+          addCamera={(title:string, link:string) => handleAddCamera(title,link)}
+          theme={active_Theme}
+          currCameraList={cameraArray}/>
+      }
       <main className="overflow-hidden">
-        <div className={`w-screen flex h-screen  ${active_Theme ? "bg-[url('../public/backgrounds/bg-light.jpg')]" : "bg-[url('../public/backgrounds/bg-dark.jpg')]"} body-wrapper`}>
+        <div className={`w-screen flex h-screen transition-all ${active_Theme ? "bg-[url('../public/backgrounds/bg-light.jpg')]" : "bg-[url('../public/backgrounds/bg-dark.jpg')]"} body-wrapper`}>
           <div className={`flex flex-grow-[1] ml-[5px] h-screen w-[${clientWidthRef.current * 0.18}] navbar`}>
             <Navbar
               theme={active_Theme}
@@ -70,8 +78,9 @@ function App() {
               getActiveCamera={(title) => setActiveCamera(title)}
               children={
                 <Buttons
-                  AddCamera={handleAddCamera}
+                  AddCamera={() => setActiveAddCamera((prev) => !prev)}
                   ActivateEditor={() => { setAcitveEditor((prev) => !prev) }}
+                  theme={active_Theme}
                 />
               }
             />

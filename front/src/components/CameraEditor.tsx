@@ -50,7 +50,10 @@ const CameraEditor = ({ cameraArray, changed, close }: Props) => {
                     setCameraTitle(item.title)
                     setCameraLink(item.link)
                   }}>
-                    <CameraLowerItem title={item.title} cameraLink={item.link} /*isActive={acitveCamera} */ />
+                    <CameraLowerItem
+                      title={item.title}
+                      isActive={cameraSelected?.id === item.id}
+                    />
                   </li>
                 ))
 
