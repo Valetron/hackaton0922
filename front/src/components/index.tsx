@@ -10,6 +10,6 @@ import { StyledTextField } from "./StyledTextField";
 import CanvasSelection from "./CanvasSelection"
 import DetectAreaItem from "./DetectAreaItem";
 import DetectAreaList from "./DetectAreaList";
-import AddCamera from "./AddCamera"
+import AddCamera from "./AddCamera";
 
 export { Navbar, CameraItem, CameraLowerItem, CameraList, CameraEditor, Buttons, NeironSettings, EventClassButtons, StyledTextField, CanvasSelection, DetectAreaItem, DetectAreaList, AddCamera }

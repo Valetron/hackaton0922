@@ -2,16 +2,21 @@ import Button from '@mui/material/Button'
 
 
 interface Props {
-    title:string,
-    cameraLink:string
+  title: string,
+  isActive: boolean
 }
 
-const CameraLowerItem = ({title}:Props) => {
-    return(
-        <>
-        <Button className="w-[190px] h-[52px] underline" variant="contained">{title}</Button>
-        </>
-    )
+const CameraLowerItem = ({ title, isActive }: Props) => {
+  return (
+    <>
+      <Button className="w-[190px] h-[52px] underline" variant="contained"
+        style={{
+          textDecoration: isActive ? 'underline' : '',
+        }}>
+        {title}
+      </Button>
+    </>
+  )
 }
 
 
