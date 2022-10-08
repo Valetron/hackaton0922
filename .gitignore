@@ -1,1 +1,7 @@
 front/node_modules
+front/src/App.css
+*autosave
+*CMakeLists.txt.user
+NN/build
+NN/conan-imports/*
+NN/cmake/*
