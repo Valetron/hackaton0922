@@ -20,17 +20,17 @@ add_executable(${PROJECT_NAME} ${HEADERS} ${SRC})
 target_include_directories(${PROJECT_NAME}
                            PUBLIC
                            ${opencv_INCLUDE_DIRS}
-                           ${tensorflowlite_INCLUDE_DIRS})
+                           ${tensorflowlite_INCLUDE_DIRS}
+                           ${flatbuffers_INCLUDE_DIRS})
 
 target_link_directories(${PROJECT_NAME}
                         PUBLIC
                         ${opencv_LIB_DIRS}
-                        ${tensorflowlite_LIB_DIRS})
+                        ${tensorflowlite_LIB_DIRS}
+                        ${flatbuffers_LIB_DIRS})
 
 target_link_libraries(${PROJECT_NAME}
                       ${opencv_LIBS}
-                      ${tensorflowlite_LIBS})
+                      ${tensorflowlite_LIBS}
+                      ${flatbuffers_LIBS})
 
-
-install(TARGETS ${PROJECT_NAME}
-        DESTINATION ${CMAKE_SOURCE_DIR}/install/bin)
