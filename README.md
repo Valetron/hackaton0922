@@ -30,5 +30,8 @@ mkdir -p NN/build && cd NN
 pip3 install conan
 source ~/.bashrc && source ~/.bash_profile
 conan install conanfile.txt --build=missing -if cmake -s compiler.libcxx=libstdc++11
+cd build
+cmake ..
+cmake --build .
 ```
 
