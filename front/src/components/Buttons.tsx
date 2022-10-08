@@ -1,7 +1,13 @@
 
 interface Props {
+<<<<<<< HEAD
   AddCamera: () => void
   ActivateEditor: () => void
+=======
+  AddCamera?: () => void,
+  ActivateEditor: () => void,
+  theme?: boolean
+>>>>>>> 3c9f21b (Added camera adding interface, little theme changes)
 }
 
 

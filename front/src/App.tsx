@@ -5,6 +5,7 @@ import ReactPlayer from 'react-player';
 function App() {
   const [active_Theme, setActiveTheme] = useState<boolean>(true)
   const [activeCamera, setActiveCamera] = useState<number>()
+  const [activeAddCamera, setActiveAddCamera] = useState<boolean>(false)
   const [cameraArray, setCameraArray] = useState<any>(null)
   const [activeEditor, setAcitveEditor] = useState<boolean>(false)
   const [activeCanvas, setActiveCanvas] = useState<boolean>(false)
@@ -39,8 +40,8 @@ function App() {
     setCanvasPosted(false)
   }, [addedCamera, changedProps, activeLinkVideoURL, canvasPosted, activeCamera, activeCanvas])
 
-  const handleAddCamera = () => {
-    const newCamera = { title: `Camera ${cameraArray[cameraArray.length - 1].id}`, link: "", login: "", password: "" }
+  const handleAddCamera = (title: string, link: string) => {
+    const newCamera = { title: title, link: link }
 
     fetch('http://localhost:8080/camerasList', {
       method: 'POST',
@@ -59,6 +60,16 @@ function App() {
   }
   return (
     <div className={`w-screen h-screen page-wrapper`}>
+<<<<<<< HEAD
+=======
+      {activeAddCamera &&
+        <AddCamera  
+          close={() => setActiveAddCamera((prev) => !prev)}
+          addCamera={(title:string, link:string) => handleAddCamera(title,link)}
+          theme={active_Theme}
+          currCameraList={cameraArray}/>
+      }
+>>>>>>> 3c9f21b (Added camera adding interface, little theme changes)
       <main className="overflow-hidden">
         <div className={`w-screen flex h-screen  ${active_Theme ? "bg-[url('../public/backgrounds/bg-light.jpg')]" : "bg-[url('../public/backgrounds/bg-dark.jpg')]"} body-wrapper`}>
           <div className={`flex flex-grow-[1] ml-[5px] h-screen w-[${clientWidthRef.current * 0.18}] navbar`}>
@@ -70,7 +81,7 @@ function App() {
               getActiveCamera={(title) => setActiveCamera(title)}
               children={
                 <Buttons
-                  AddCamera={handleAddCamera}
+                  AddCamera={() => setActiveAddCamera((prev) => !prev)}
                   ActivateEditor={() => { setAcitveEditor((prev) => !prev) }}
                 />
               }

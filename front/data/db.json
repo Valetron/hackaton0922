@@ -27,6 +27,7 @@
       "login": "",
       "password": "",
       "id": 4
+<<<<<<< HEAD
     },
     {
       "title": "Camera 4",
@@ -34,6 +35,8 @@
       "login": "",
       "password": "",
       "id": 5
+=======
+>>>>>>> 3c9f21b (Added camera adding interface, little theme changes)
     }
   ],
   "neironDetectionStates": [
