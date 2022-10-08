@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
 import { Navbar, CameraEditor, Buttons, NeironSettings, CanvasSelection } from './components'
-import Button from '@mui/material/Button'
 import ReactPlayer from 'react-player';
 
 function App() {
@@ -9,35 +8,35 @@ function App() {
   const [cameraArray, setCameraArray] = useState<any>(null)
   const [activeEditor, setAcitveEditor] = useState<boolean>(false)
   const [activeCanvas, setActiveCanvas] = useState<boolean>(false)
-  const [activeCanvasSelect, setCanvasSelect] = useState<boolean>(false)
   const [addedCamera, setAddedCamera] = useState<boolean>(false)
   const [changedProps, setChangedProps] = useState<boolean>(false)
   const [activeLinkVideoURL, setActiveLinkVideoURL] = useState<string>('')
   const [activeCameraShapes, setCameraShapes] = useState<any>([])
   const [canvasPosted, setCanvasPosted] = useState<boolean>(false)
+  const [activeCanvasSelect] = useState<boolean>(false)
+
 
   let clientWidth: number = window.innerWidth;
-  let clientHeight: number = window.innerHeight;
+  let currentHost = 'localhost'
 
   const clientWidthRef = useRef(window.innerWidth)
 
-
-  let currentHost = 'localhost'
-  console.log('renderMain')
-
   useEffect(() => {
+
     fetch(`http://${currentHost}:8080/camerasList`)
       .then(res => { return res.json() })
       .then(data => { setCameraArray(data) })
-    if (addedCamera || changedProps) {
+
+    if (addedCamera)
       setAddedCamera(false)
+    if (changedProps)
       setChangedProps(false)
-    }
+
     fetch(`http://${currentHost}:8080/camerasAreas`)
       .then(res => { return res.json() })
       .then(data => { setCameraShapes(data.filter((item: any) => item.cam_id == activeCamera)) })
-    if (canvasPosted)
-      setCanvasPosted((prev) => !prev)
+
+    setCanvasPosted(false)
   }, [addedCamera, changedProps, activeLinkVideoURL, canvasPosted, activeCamera, activeCanvas])
 
   const handleAddCamera = () => {
@@ -61,7 +60,7 @@ function App() {
   return (
     <div className={`w-screen h-screen page-wrapper`}>
       <main className="overflow-hidden">
-        <div className={`w-screen flex h-screen  ${active_Theme ? 'bg-gradient-to-r -[#101c2c] -[#c0d7fb]' : 'bg-[#101c2c]'} body-wrapper`}>
+        <div className={`w-screen flex h-screen  ${active_Theme ? "bg-[url('../public/backgrounds/bg-light.jpg')]" : "bg-[url('../public/backgrounds/bg-dark.jpg')]"} body-wrapper`}>
           <div className={`flex flex-grow-[1] ml-[5px] h-screen w-[${clientWidthRef.current * 0.18}] navbar`}>
             <Navbar
               theme={active_Theme}
