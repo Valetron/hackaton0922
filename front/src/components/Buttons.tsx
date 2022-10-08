@@ -1,24 +1,48 @@
+import Button from '@mui/material/Button'
 
 interface Props {
-<<<<<<< HEAD
-  AddCamera: () => void
-  ActivateEditor: () => void
-=======
   AddCamera?: () => void,
   ActivateEditor: () => void,
   theme?: boolean
->>>>>>> 3c9f21b (Added camera adding interface, little theme changes)
 }
 
 
-const Buttons = ({ AddCamera, ActivateEditor }: Props) => {
+const Buttons = ({ AddCamera, ActivateEditor, theme }: Props) => {
   return (
-    <>
-      <button className="bg-gradient-to-br from-[#007fff] to-[#0059b2] px-[25px] py-[10px] rounded-[15px] mt-[15px] text-white"
-        onClick={AddCamera}>Add cam</button>
-      <button className="bg-gradient-to-br from-[#007fff] to-[#0059b2] px-[30.5px] py-[10px] rounded-[15px] mt-[15px] text-white"
-        onClick={ActivateEditor}>Edit list</button>
-    </>
+    <div className="w-full flex mt-[15px]">
+      {
+        /*
+        <button className="bg-gradient-to-br from-[#007fff] to-[#0059b2] px-[25px] py-[10px] rounded-[15px] mt-[15px] text-white"
+          onClick={AddCamera}>Add cam</button>
+        <button className="bg-gradient-to-br from-[#007fff] to-[#0059b2] px-[30.5px] py-[10px] rounded-[15px] mt-[15px] text-white"
+          onClick={ActivateEditor}>Edit list</button>
+        */
+      }
+      <Button variant="contained" style={{
+        background: theme ? '' : '#222',
+        position: 'absolute',
+        marginLeft: '52.5px',
+        width: '125px',
+        height: '40px',
+        borderRadius: '50px',
+        borderBottom: theme ? '' : '0.5px solid orange'
+      }}
+        onClick={AddCamera}>
+        Add cam
+      </Button>
+      <Button variant="contained" style={{
+        background: theme ? '' : '#222',
+        position: 'absolute',
+        marginLeft: '202.5px',
+        width: '125px',
+        height: '40px',
+        borderRadius: '50px',
+        borderBottom: theme ? '' : '0.5px solid orange'
+      }}
+        onClick={ActivateEditor}>
+        Edit list
+      </Button>
+    </div>
   )
 }
 
