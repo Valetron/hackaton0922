@@ -14,7 +14,7 @@ interface Props {
 
 const Navbar = ({ cameras, children, getURL, theme, changeTheme, getActiveCamera }: Props) => {
   return (
-    <div className={`flex flex-col items-center w-full my-[10px] rounded-[15px] bg-opacity-10 text-white
+    <div className={`flex flex-col items-center w-full my-[10px] rounded-[15px] bg-opacity-10 text-white transition-all
       ${theme ? 'bg-gradient-to-br from-[rgba(255,255,255,0.1)] to-[rgba(255,255,2550,0)] backdrop-blur-[8px] border-[1px] border-[rgba(255,255,255,0.18)] shadow-[0px_8px_32px_0px_rgba(0,0,0,0.37)] [#fff] [#3e5dd2]'
         :
         'bg[#0c1928] bg-gradient-to-br from-[rgba(12,25,40,0.45)] to-[rgba(12,25,40,0.2)] backdrop-blur-[8px] border-[1px] border-[rgba(255,255,255,0.18)] shadow-[0px_8px_32px_0px_rgba(255,255,255,0.37)]'} navbar-blur`}>
@@ -23,7 +23,7 @@ const Navbar = ({ cameras, children, getURL, theme, changeTheme, getActiveCamera
         List of available cameras
       </span>
       <div className="w-full overflow-y-scroll cameras-list">
-        {cameras && <CameraList getURL={getURL} cameraArray={cameras} getActiveCamera={getActiveCamera} />}
+        {cameras && <CameraList theme={theme} getURL={getURL} cameraArray={cameras} getActiveCamera={getActiveCamera} />}
       </div>
       <div className="button-section flex justify-around w-full">
         {children}
@@ -32,4 +32,4 @@ const Navbar = ({ cameras, children, getURL, theme, changeTheme, getActiveCamera
   )
 }
 
-export default Navbar
+export default React.memo(Navbar)

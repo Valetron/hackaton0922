@@ -60,7 +60,7 @@ function App() {
   return (
     <div className={`w-screen h-screen page-wrapper`}>
       <main className="overflow-hidden">
-        <div className={`w-screen flex h-screen  ${active_Theme ? "bg-[url('../public/backgrounds/bg-light.jpg')]" : "bg-[url('../public/backgrounds/bg-dark.jpg')]"} body-wrapper`}>
+        <div className={`w-screen flex h-screen transition-all ${active_Theme ? "bg-[url('../public/backgrounds/bg-light.jpg')]" : "bg-[url('../public/backgrounds/bg-dark.jpg')]"} body-wrapper`}>
           <div className={`flex flex-grow-[1] ml-[5px] h-screen w-[${clientWidthRef.current * 0.18}] navbar`}>
             <Navbar
               theme={active_Theme}
@@ -72,6 +72,7 @@ function App() {
                 <Buttons
                   AddCamera={handleAddCamera}
                   ActivateEditor={() => { setAcitveEditor((prev) => !prev) }}
+                  theme={active_Theme}
                 />
               }
             />
