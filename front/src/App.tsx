@@ -60,12 +60,12 @@ function App() {
   }
   return (
     <div className={`w-screen h-screen page-wrapper`}>
-      {activeAddCamera &&
-        <AddCamera  
+      {activeAddCamera && !activeCanvas && !activeEditor &&
+        <AddCamera
           close={() => setActiveAddCamera((prev) => !prev)}
-          addCamera={(title:string, link:string) => handleAddCamera(title,link)}
+          addCamera={(title: string, link: string) => handleAddCamera(title, link)}
           theme={active_Theme}
-          currCameraList={cameraArray}/>
+          currCameraList={cameraArray} />
       }
       <main className="overflow-hidden">
         <div className={`w-screen flex h-screen transition-all ${active_Theme ? "bg-[url('../public/backgrounds/bg-light.jpg')]" : "bg-[url('../public/backgrounds/bg-dark.jpg')]"} body-wrapper`}>
@@ -116,6 +116,7 @@ function App() {
           </div>
         </div>
         {activeEditor && <CameraEditor
+          theme={active_Theme}
           changed={() => setChangedProps((prev) => !prev)}
           close={() => setAcitveEditor((prev) => !prev)}
           cameraArray={cameraArray}

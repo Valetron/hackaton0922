@@ -1,8 +1,7 @@
 import TextField from '@mui/material/TextField'
 import { styled } from '@mui/material/styles'
 
-
-export  const StyledTextField = styled(TextField)({
+export  const StyledTextField = styled(TextField)(({theme}) =>({
     "& label": {
         color: "#2a79cd",
         fontWeight:600
@@ -31,4 +30,4 @@ export  const StyledTextField = styled(TextField)({
           borderColor: "#2a79cd",
         }
       } 
-})
+}))

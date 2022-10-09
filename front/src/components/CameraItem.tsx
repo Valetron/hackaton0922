@@ -23,7 +23,7 @@ const CameraItem = ({ title, theme, hasLink, isActive }: Props) => {
   return (
     <>
       <StyledButton className="w-[300px] h-[52px] underline" variant="contained" style={{
-        background: theme ? isActive ? '' : '' : isActive ? '#214268' : '#222',
+        background: theme ? isActive ? '' : '#214379' : isActive ? '#214268' : '#222',
         borderRadius: '20px',
         textTransform: 'none',
         borderBottom: isActive ? '3px solid #647b95' : '',
