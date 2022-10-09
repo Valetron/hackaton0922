@@ -11,7 +11,10 @@ interface Props {
 const DetectAreaList = ({ currCameraAreas, deleteCurrentArea }: Props) => {
   return (
     <ul className="flex flex-col">
-      {
+      {currCameraAreas.length === 0 &&
+        <div>No areas on current camera</div>
+      }
+      {currCameraAreas.length !== 0 &&
         currCameraAreas.map((item: any, index: number) => (
           <li key={index} className="mb-[5px] flex">
             <DetectAreaItem title={item.title} />

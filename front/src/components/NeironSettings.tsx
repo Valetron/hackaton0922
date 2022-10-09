@@ -85,8 +85,9 @@ const NeironSettings = ({ theme, isActive, activeCamera, camAreas, handleDeleted
         'bg[#0c1928] bg-gradient-to-br from-[rgba(12,25,40,0.45)] to-[rgba(12,25,40,0.2)] backdrop-blur-[8px] border-[1px] border-[rgba(255,255,255,0.18)] shadow-[0px_8px_32px_0px_rgba(255,255,255,0.37)]'} navbar-blur`}>
       <span className="p-[15px] font-bold uppercase">Neiron settings</span>
       <div className="settings-sections">
-        <Button className="w-[300px] h-[56px]" variant="contained" 
+        <Button className="w-[300px] h-[56px]" variant="contained"
           style={{
+            borderRadius: '25px',
             background: theme ? '' : '#333333',
             borderBottom: theme ? '' : '1px solid orange'
           }}
@@ -106,8 +107,9 @@ const NeironSettings = ({ theme, isActive, activeCamera, camAreas, handleDeleted
         </div>
       }
       <span className="mt-[15px]">
-        <Button className="w-[300px] h-[56px]" variant="contained" 
+        <Button className="w-[300px] h-[56px]" variant="contained"
           style={{
+            borderRadius: '25px',
             background: theme ? '' : '#333333',
             borderBottom: theme ? '' : '1px solid orange'
           }}
@@ -124,7 +126,6 @@ const NeironSettings = ({ theme, isActive, activeCamera, camAreas, handleDeleted
               currCameraAreas={camAreas}
             />
             <Button variant="contained" onClick={handleAddArea}>{`${!currentActive ? 'Add area' : 'Cancel adding'}`}</Button>
-            <Button variant="contained" onClick={() => { }}>Apply changes</Button>
           </div>
         </div>
       }
