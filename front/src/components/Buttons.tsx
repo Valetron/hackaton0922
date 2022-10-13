@@ -6,6 +6,8 @@ interface Props {
   theme?: boolean
 }
 
+let clientWidth: number = window.innerWidth;
+
 
 const Buttons = ({ AddCamera, ActivateEditor, theme }: Props) => {
   return (
@@ -21,7 +23,7 @@ const Buttons = ({ AddCamera, ActivateEditor, theme }: Props) => {
       <Button variant="contained" style={{
         background: theme ? '' : '#222',
         position: 'absolute',
-        marginLeft: '52.5px',
+        left: clientWidth * 0.18 * 0.1,
         width: '125px',
         height: '40px',
         borderRadius: '50px',
@@ -33,7 +35,7 @@ const Buttons = ({ AddCamera, ActivateEditor, theme }: Props) => {
       <Button variant="contained" style={{
         background: theme ? '' : '#222',
         position: 'absolute',
-        marginLeft: '202.5px',
+        right: clientWidth * 0.18 * 0.1,
         width: '125px',
         height: '40px',
         borderRadius: '50px',

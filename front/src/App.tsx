@@ -69,7 +69,7 @@ function App() {
       }
       <main className="overflow-hidden">
         <div className={`w-screen flex h-screen transition-all ${active_Theme ? "bg-[url('../public/backgrounds/bg-light.jpg')]" : "bg-[url('../public/backgrounds/bg-dark.jpg')]"} body-wrapper`}>
-          <div className={`flex flex-grow-[1] ml-[5px] h-screen w-[${clientWidthRef.current * 0.18}] navbar`}>
+          <div className={`flex flex-grow-[1] ml-[5px] h-screen w-[${clientWidth * 0.18}] navbar`}>
             <Navbar
               theme={active_Theme}
               changeTheme={() => setActiveTheme((prev) => !prev)}
@@ -85,13 +85,13 @@ function App() {
               }
             />
           </div>
-          <div className={`w-[${clientWidthRef.current * 0.6}] h-screen flex flex-grow-[2] justify-center items-center content`}>
+          <div className={`w-[${clientWidthRef.current * 0.55}] h-screen flex flex-grow-[2] justify-center items-center content`}>
             <div className="player-wrap ">
-              <div className={`min-w-[${clientWidthRef.current * 0.6}]}`}>
+              <div className={`min-w-[${clientWidthRef.current * 0.55}]}`}>
                 {!activeEditor &&
-                  <ReactPlayer width={900} height={600} playing={true} muted url={activeLinkVideoURL} />
+                  <ReactPlayer width={clientWidthRef.current * 0.55} height={600} playing={true} muted url={activeLinkVideoURL} />
                 }
-                {activeEditor && <div className="w-[900px] h-[900px]"></div>}
+                {activeEditor && <div className={`w-[${clientWidthRef.current * 0.6}] h-[900px]`}></div>}
               </div>
               {!activeEditor && activeCanvas && <CanvasSelection
                 changed={() => setChangedProps((prev) => !prev)}
@@ -105,7 +105,7 @@ function App() {
                 activeCameraID={activeCamera} />}
             </div>
           </div>
-          <div className={`flex flex-grow-[1] w-[${clientWidth * 0.18}] mr-[5px] h-screen neiron-settings`}>
+          <div className={`flex flex-grow-[1] w-[${clientWidthRef.current * 0.2}] mr-[5px] h-screen neiron-settings`}>
             <NeironSettings
               handleDeleted={(id) => handleDeleteArea(id)}
               camAreas={activeCameraShapes}
