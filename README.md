@@ -13,6 +13,11 @@ npm start
 ```
 3. Запустится проект в основном браузере на http://localhost:3000 (default).
 
+### Подключение конфига с данными
+```
+npx json-server --watch front/data/db.json --port 8080
+```
+
 ## Neural network
 ### Зависимости
 * opencv >= 4.5.2
