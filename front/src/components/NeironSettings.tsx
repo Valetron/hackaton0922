@@ -9,17 +9,19 @@ interface Props {
   isActive: () => void,
   activeCamera: number | undefined,
   camAreas: any,
-  handleDeleted: (id: number) => void
+  handleDeleted: (id: number) => void,
+  handleActivatedCanvas: () => void
 }
 
 
-const NeironSettings = ({ theme, isActive, activeCamera, camAreas, handleDeleted }: Props) => {
+const NeironSettings = ({ theme, isActive, activeCamera, camAreas, handleDeleted, handleActivatedCanvas }: Props) => {
   const [activeEvent, setActiveEvent] = useState<boolean>(false)
   const [detectHelmet, setDetectHelmet] = useState<boolean>()
   const [detectPlace, setDetectPlace] = useState<boolean>()
   const [activeArea, setActiveArea] = useState<boolean>(false)
   const [currentActive, setActive] = useState<boolean>(false)
   const [areaDeleted, setDeletedArea] = useState<boolean>(false)
+  const [addArea, setAddArea] = useState<boolean>(false)
 
 
 
@@ -74,6 +76,11 @@ const NeironSettings = ({ theme, isActive, activeCamera, camAreas, handleDeleted
   */
 
   const handleAddArea = () => {
+    setAddArea((prev) => !prev)
+    handleActivatedCanvas()
+  }
+
+  const handleActiArea = () => {
     setActive((prev) => !prev)
     isActive()
   }
@@ -125,7 +132,10 @@ const NeironSettings = ({ theme, isActive, activeCamera, camAreas, handleDeleted
               deleteCurrentArea={(id) => handleDeleted(id)}
               currCameraAreas={camAreas}
             />
-            <Button variant="contained" onClick={handleAddArea}>{`${!currentActive ? 'Add area' : 'Cancel adding'}`}</Button>
+            <Button style={{
+              marginBottom: '5px'
+            }} variant="contained" onClick={handleAddArea}>{`${!addArea ? 'Add area' : 'Finish add'}`}</Button>
+            <Button variant="contained" onClick={handleActiArea}>{`${!currentActive ? 'Show canvas' : 'Hide canvas'}`}</Button>
           </div>
         </div>
       }
