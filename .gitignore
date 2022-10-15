@@ -5,3 +5,4 @@ front/src/App.css
 NN/build
 NN/conan-imports/*
 NN/cmake/*
+build*

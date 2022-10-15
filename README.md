@@ -25,6 +25,13 @@ npx json-server --watch front/data/db.json --port 8080
 * conan (для сборки)
 * cmake >= 3.10
 
+### Тестирование
+```
+cd yolo
+pip3 install -r requirements.txt
+python3 detect.py --weights path/to/hackaton0922/NN/models/best0.pt --source parh/to/hackaton0922/test/vidos.mp4 --nosave --view-img
+```
+
 ### Установка
 1. Перейти в папку NN и создать папку *build*
 ```bash
