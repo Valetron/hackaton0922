@@ -1,5 +1,15 @@
 # hackaton0922
 
+## Результаты
+![Детектирование СИЗ нейросетью](https://github.com/Valetron/hackaton0922/blob/main/README/cut.mp4)
+
+![Выставление зоны детектирования в web интерфейсе](README/cut.png)
+
+## Участники
+[Валерий Ржевский](https://github.com/Valetron) \
+[Глеб Харитонов](https://github.com/Ser1ousSAM) \
+[Денис Жиров](https://github.com/myaak)
+
 ## Frontend
 ### Сборка фронта
 #### Установка зависимостей
