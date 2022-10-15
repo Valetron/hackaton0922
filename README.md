@@ -6,8 +6,8 @@
 ![Выставление зоны детектирования в web интерфейсе](README/cut.png)
 
 ## Участники
-[Валерий Ржевский](https://github.com/Valetron)
-[Глеб Харитонов](https://github.com/Ser1ousSAM)
+[Валерий Ржевский](https://github.com/Valetron) \
+[Глеб Харитонов](https://github.com/Ser1ousSAM) \
 [Денис Жиров](https://github.com/myaak)
 
 ## Frontend
